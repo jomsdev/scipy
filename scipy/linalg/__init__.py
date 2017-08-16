@@ -187,6 +187,7 @@ from .matfuncs import *
 from .blas import *
 from .lapack import *
 from .special_matrices import *
+from .random_projections import *
 from ._solvers import *
 from ._procrustes import *
 from ._decomp_update import *
