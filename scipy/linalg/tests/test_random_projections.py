@@ -25,7 +25,9 @@ def make_random_gaussian_matrix(n_rows, n_columns, mu=0, sigma=0.01):
     return np.reshape(res, (n_rows, n_columns))
 
 class TestRandomProjections(object):
+    A = make_random_gaussian_matrix(500, 2000)
 
     def test_clarkson_woodruff_transform(self):
-        A = make_random_gaussian_matrix(500, 2000)
-        assert_true(A.shape == (500, 2000))
+        n_columns_sketch = 100
+        sketch = clarckson_woodruff_transform(self.A, n_columns_sketch)
+        assert_true(sketch.shape == (self.A.shape[0], n_columns_sketch))
