@@ -6,7 +6,16 @@ import numpy as np
 
 __all__ = ['clarckson_woodruff_transform']
 
-def clarckson_woodruff_transform(input_matrix, number_of_columns):
+def cwt_matrix(n_rows, n_columns):
+    S = np.zeros((n_rows, n_columns))
+    nz_positions = np.random.randint(0, n_rows, n_columns)
+    values = np.random.choice([1, -1], n_columns)
+    for i in range(n_columns):
+        S[nz_positions[i]][i] = values[i]
+    
+    return S
+
+def clarckson_woodruff_transform(input_matrix, n_columns):
     """
     Given a matrix A (input_matrix) of size (n, d), compute a matrix A' of size  (n, s) which holds:
 
@@ -21,7 +30,7 @@ def clarckson_woodruff_transform(input_matrix, number_of_columns):
     ----------
     input_matrix (A) : (n, d) array_like
         Input matrix
-    number_of_columns (s) : int
+    n_columns (s) : int
         number of columns for A'
 
     Returns
@@ -36,4 +45,5 @@ def clarckson_woodruff_transform(input_matrix, number_of_columns):
 
     A' can be computed in O(nnz(A)) but we don't take advantage of sparse matrix in this implementation
     """
-    return np.zeros(input_matrix.shape[0], number_of_columns)
+    S = cwt_matrix(input_matrix.shape[1], n_columns)
+    return input_matrix*S
