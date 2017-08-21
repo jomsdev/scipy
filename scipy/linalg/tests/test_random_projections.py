@@ -29,5 +29,5 @@ class TestRandomProjections(object):
 
     def test_clarkson_woodruff_transform(self):
         n_columns_sketch = 100
-        sketch = clarckson_woodruff_transform(self.A, n_columns_sketch)
+        sketch = clarkson_woodruff_transform(self.A, n_columns_sketch)
         assert_true(sketch.shape == (self.A.shape[0], n_columns_sketch))

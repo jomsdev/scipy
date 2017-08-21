@@ -4,7 +4,7 @@ from __future__ import division, print_function, absolute_import
 
 import numpy as np
 
-__all__ = ['clarckson_woodruff_transform']
+__all__ = ['clarkson_woodruff_transform']
 
 def cwt_matrix(n_rows, n_columns):
     S = np.zeros((n_rows, n_columns))
@@ -15,7 +15,7 @@ def cwt_matrix(n_rows, n_columns):
     
     return S
 
-def clarckson_woodruff_transform(input_matrix, n_columns):
+def clarkson_woodruff_transform(input_matrix, n_columns):
     """
     Given a matrix A (input_matrix) of size (n, d), compute a matrix A' of size  (n, s) which holds:
 
