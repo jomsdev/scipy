@@ -46,4 +46,4 @@ def clarkson_woodruff_transform(input_matrix, n_columns):
     A' can be computed in O(nnz(A)) but we don't take advantage of sparse matrix in this implementation
     """
     S = cwt_matrix(input_matrix.shape[1], n_columns)
-    return input_matrix*S
+    return np.dot(input_matrix, S)
