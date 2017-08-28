@@ -2,7 +2,7 @@
 
 from __future__ import division, print_function, absolute_import
 import numpy as np
-from scipy.linalg import clarckson_woodruff_transform
+from scipy.linalg import clarkson_woodruff_transform
 
 __usage__ = """
 Build linalg:
